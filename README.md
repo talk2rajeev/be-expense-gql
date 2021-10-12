@@ -1,1 +1,3 @@
 # be-expense-gql
+
+## installation
