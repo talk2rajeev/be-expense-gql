@@ -1,0 +1,48 @@
+.App {
+  position: relative;
+}
+.App > div {
+  max-width: 1000px;
+  margin: 0 auto;;
+}
+.vendorlist-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr 80px;
+}
+
+.vendorlist-grid > div {
+  border-bottom: 1px solid #cdcdcd;
+  padding: 10px;
+  font-size: 12px;
+}
+.vendorlist-grid.table-heading{
+  font-weight: 500;
+  background-color: #efefef;
+  font-size: 14px!important;
+}
+
+.vendor-form {
+  padding: 20px 10px;
+  margin-bottom: 20px;
+  background: #dfdfdf;
+}
+.vendor-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-items: stretch;
+  gap: 10px;
+}
+
+.vendor-form-grid input, 
+.vendor-form-grid select, 
+.vendor-form-grid button {
+  width: 100%;
+  padding: 8px 20px;
+  box-sizing: border-box;
+}
+
+.btn-gridX2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+}
