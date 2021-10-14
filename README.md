@@ -2,3 +2,5 @@
 
 ## installation
 `npm install`
+
+## how to work
