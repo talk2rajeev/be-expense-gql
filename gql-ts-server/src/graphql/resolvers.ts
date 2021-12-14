@@ -2,8 +2,8 @@ import { v4 as uuid } from 'uuid'
 const bcrypt = require('bcrypt');
 const { getToken } = require("../util")
 const { AuthenticationError } = require('apollo-server');
-import { WorkersAndProvidersInterface, WorkerInvoiceInterface } from '../graphql/types';
-const { fetchUser, users, vendorList, fetchVendors, fetchProviderWorkers, fetchWorkerInvoice } = require('../../database/mockdata');
+import { WorkersAndProvidersInterface, WorkerInvoiceInterface, VendorInvoiceInterface  } from '../graphql/types';
+const { fetchUser, users, vendorList, fetchVendors, fetchProviderWorkers, fetchWorkerInvoice, fetchVendorInvoice } = require('../../database/mockdata');
 
 
 // Resolvers define the technique for fetching the types defined in the schema.
@@ -21,11 +21,8 @@ interface VendorInterface {
 }
 type VendorReqType = Omit<VendorInterface, 'id'>;
 
-
 const saltRounds = 10;
 const myPlaintextPassword = 'admin';
-const someOtherPlaintextPassword = 'not_bacon';
-
 
 export const resolvers = {
     Query: {
@@ -63,6 +60,10 @@ export const resolvers = {
         async workerInvoice(parent: any, args: any, ctx: any, info: any) {
             const workerInvoice = await fetchWorkerInvoice();
             return workerInvoice;
+        },
+        async  vendorInvoice(parent: any, args: any, ctx: any, info: any) {
+            const vendorInvoice = await fetchVendorInvoice();
+            return vendorInvoice;
         },
     },
     Mutation: {
@@ -115,9 +116,11 @@ export const resolvers = {
     WorkersAndProviders: {
         async workerInvoice(parent: WorkersAndProvidersInterface, args: any, ctx: any, info: any) {
             const workerInvoice = await fetchWorkerInvoice();
-            console.log('WorkersAndProviders :::::::::::::  ', workerInvoice)
-            console.log('parent :::::::::::::  ', parent)
-            return workerInvoice.filter((invoice: WorkerInvoiceInterface) => invoice.wpid === parent.id)
+            return workerInvoice.filter((invoice: WorkerInvoiceInterface) => invoice.wpid === parent.id) || null
+        },
+        async vendorInvoice(parent: WorkersAndProvidersInterface, args: any, ctx: any, info: any) {
+            const workerInvoice = await fetchVendorInvoice();
+            return workerInvoice.filter((invoice: VendorInvoiceInterface) => invoice.wpid === parent.id) || null
         }
     },
 };
