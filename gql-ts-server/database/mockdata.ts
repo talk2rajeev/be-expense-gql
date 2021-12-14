@@ -62,6 +62,7 @@ const WorkersProviders = [
   {id: '2', name: 'Ramdhari', address: 'karmasa', type: WorkersProviderEnum.worker, additionalDetail: "painter" },
   {id: '3', name: 'Guddu', address: 'ncc', type: WorkersProviderEnum.worker, contact: '7391375129', additionalDetail: "worker manager" },
   {id: '4', name: 'Manish', address: 'chapiya', type: WorkersProviderEnum.worker, contact: '8963375453', additionalDetail: "Mason" },
+  {id: '5', name: 'VIP co', address: 'Merwa', type: WorkersProviderEnum.vendor, contact: '7295973130' },
 ]
 export const fetchProviderWorkers = (): Promise<Array<WorkersAndProvidersInterface>> => {
   return new Promise((resolve, reject) => {
@@ -71,7 +72,7 @@ export const fetchProviderWorkers = (): Promise<Array<WorkersAndProvidersInterfa
   });
 }
 
-const workerInvoiceCopy = [
+const workerInvoice = [
   { id: 'w1', wpid: '2', date: '05 Dec 2021', wage: 300, halfDay: true, note: 'painting work'},
   { id: 'w2', wpid: '3', date: '06 Dec 2021', wage: 300 },
   { id: 'w3', wpid: '3', date: '07 Dec 2021', wage: 300 },
@@ -79,16 +80,22 @@ const workerInvoiceCopy = [
   { id: 'w5', wpid: '2', date: '07 Dec 2021', wage: 350, note: 'painting work'},
   { id: 'w6', wpid: '4', date: '08 Dec 2021', wage: 350, note: 'extra work'}
 ]
-const workerInvoice = [
-  { id: 'w1', wpid: '2', workingDays: 2, amount: 1000, note: 'painting work'},
-  { id: 'w2', wpid: '3', workingDays: 2, amount: 1200 },
-  { id: 'w2', wpid: '3', workingDays: 4, amount: 1200 },
-  { id: 'w2', wpid: '3', workingDays: 1, amount: 300 }
-]
 export const fetchWorkerInvoice = (): Promise<Array<WorkerInvoiceInterface>> => {
   return new Promise((resolve, reject) => {
     setTimeout(()=>{
-      resolve(workerInvoiceCopy);
+      resolve(workerInvoice);
+    }, 1000)
+  });
+}
+
+const vendorInvoice = [
+  { id: 'w1', wpid: '1', date: '05 Dec 2021', purchasedItems: [{expense_item: 'sariya 10mm', cost: 5676, qty: '1 quintol'}] },
+  { id: 'w2', wpid: '5', date: '06 Dec 2021', purchasedItems: [{expense_item: 'sariya 12mm', cost: 12676, qty: '2 quintol'}, {expense_item: 'sariya 10mm', cost: 25676, qty: '4 quintol'}] },
+]
+export const fetchVendorInvoice = (): Promise<Array<VendorInvoiceInterface>> => {
+  return new Promise((resolve, reject) => {
+    setTimeout(()=>{
+      resolve(vendorInvoice);
     }, 1000)
   });
 }
