@@ -23,13 +23,12 @@ export interface WorkerInvoiceInterface {
 export interface VendorInvoiceInterface {
   id: string,
   wpid: string,
+  date: string,
   purchasedItems: Array<VendorExpenseItemInterface>
 }
 
 export interface VendorExpenseItemInterface {
-  id: string, 
-  expenseName: string,
+  expense_item: string,
   cost: number,
-  date: string,
-  invoiceId: string,
+  qty: string,
 }
