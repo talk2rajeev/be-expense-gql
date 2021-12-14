@@ -36,6 +36,7 @@ export const typeDefs = gql`
     additionalDetail: String,
     contact: String,
     workerInvoice: [WokerInvoice!]
+    vendorInvoice: [VendorInvoice]
   }
 
   type WokerInvoice {
@@ -45,6 +46,18 @@ export const typeDefs = gql`
     date: String,
     halfDay: Boolean,
     note: String, 
+  }
+
+  type VendorInvoice {
+    id: String!,
+    wpid: String!,
+    date: String,
+    purchasedItems: [VendorExpenseItem]
+  }
+  type VendorExpenseItem {
+    expense_item: String!,
+    cost: Int!,
+    qty: String,
   }
 
 
@@ -67,6 +80,7 @@ export const typeDefs = gql`
     vendors: [Vendor!]!
     providers: [WorkersAndProviders]!
     workerInvoice: [WokerInvoice]!
+    vendorInvoice: [VendorInvoice]!
   }
 `;
 
