@@ -8,6 +8,7 @@ import {
   InMemoryCache,
   ApolloProvider
 } from "@apollo/client";
+import RoutesComp, {Login} from './routes';
 
 const client = new ApolloClient({
   uri: 'http://localhost:4000',
@@ -17,7 +18,9 @@ const client = new ApolloClient({
 ReactDOM.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <App />
+      <div>
+        <RoutesComp />
+      </div>
     </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root')

@@ -46,3 +46,25 @@
   grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
 }
+
+/* antd calendar css override */
+.ant-picker-date-panel .ant-picker-content th {
+  background: #f9f9f9;
+  padding: 8px 0px!important;
+  font-weight: bold;
+}
+.ant-picker-content th, .ant-picker-content td {
+  border-top: 1px solid #f5f5f5;
+  border-right: 1px solid #f5f5f5;
+}
+
+.present-tick-mark {
+  font-size: 1em;
+  font-weight: bold;
+}
+.present-tick-mark  .fullday{
+  color: green;
+}
+.present-tick-mark  .halfday {
+  color: #a6d6a6;
+}

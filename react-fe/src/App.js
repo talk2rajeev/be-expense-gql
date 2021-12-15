@@ -7,6 +7,7 @@ import {
 import './App.css';
 
 
+
 const FEFTCH_VENDORS = gql`
   query getVendorQuery {
     vendors{
