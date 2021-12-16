@@ -10,7 +10,7 @@ import {
 export const users = [
   {
     name: 'Raj',
-    email: 'raj@mail.com',
+    email: 'raj@gmail.com',
     password: '$2b$10$J3LR8rzx.HDtYfBAbqvdfe4LNcWqT8HRVyGMg/JZvwOqVU3BPYUaW',
   }
 ];
@@ -72,7 +72,7 @@ export const fetchProviderWorkers = (): Promise<Array<WorkersAndProvidersInterfa
   });
 }
 
-const workerInvoice = [
+export const workerInvoice = [
   { id: 'w1', wpid: '2', date: '05 Dec 2021', wage: 300, halfDay: true, note: 'painting work'},
   { id: 'w2', wpid: '3', date: '06 Dec 2021', wage: 300 },
   { id: 'w3', wpid: '3', date: '07 Dec 2021', wage: 300 },
