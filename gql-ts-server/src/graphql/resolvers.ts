@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const { getToken } = require("../util")
 const { AuthenticationError } = require('apollo-server');
 import { WorkersAndProvidersInterface, WorkerInvoiceInterface, VendorInvoiceInterface  } from '../graphql/types';
-const { fetchUser, users, vendorList, fetchVendors, fetchProviderWorkers, fetchWorkerInvoice, fetchVendorInvoice } = require('../../database/mockdata');
+const { fetchUser, users, vendorList, workerInvoice, fetchVendors, fetchProviderWorkers, fetchWorkerInvoice, fetchVendorInvoice } = require('../../database/mockdata');
 
 
 // Resolvers define the technique for fetching the types defined in the schema.
@@ -20,6 +20,7 @@ interface VendorInterface {
     address: string
 }
 type VendorReqType = Omit<VendorInterface, 'id'>;
+type WorkerInvoiceInterfaceReq = Omit<WorkerInvoiceInterface, 'id'>
 
 const saltRounds = 10;
 const myPlaintextPassword = 'admin';
@@ -111,7 +112,22 @@ export const resolvers = {
             users.push(user);
 
             return user;
-        }
+        },
+        createWorkerInvoice(parent: undefined, args: WorkerInvoiceInterfaceReq, ctx: any, info: any) {
+            
+            const invoice: WorkerInvoiceInterface = {
+                id: uuid(),
+                wpid: args.wpid,
+                wage: args.wage,
+                date: args.date,
+                halfDay: args.halfDay,
+                note: args.note, 
+            }
+
+            workerInvoice.push(invoice);
+            console.log(invoice, workerInvoice)
+            return invoice;
+        },
     },
     WorkersAndProviders: {
         async workerInvoice(parent: WorkersAndProvidersInterface, args: any, ctx: any, info: any) {
