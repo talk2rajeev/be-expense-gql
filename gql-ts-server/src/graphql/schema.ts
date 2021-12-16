@@ -35,11 +35,11 @@ export const typeDefs = gql`
     type: String!,
     additionalDetail: String,
     contact: String,
-    workerInvoice: [WokerInvoice!]
+    workerInvoice: [WorkerInvoice!]
     vendorInvoice: [VendorInvoice]
   }
 
-  type WokerInvoice {
+  type WorkerInvoice {
     id: String!,
     wpid: String!,
     wage: Int!,
@@ -62,9 +62,10 @@ export const typeDefs = gql`
 
 
   type Mutation {
-      createUser(name: String!, email: String!, password: String!): User!
-      createVendor(name: String!, type: String!, address: String): Vendor!
-      login(email: String!, password: String!): LoginResponse!
+    createUser(name: String!, email: String!, password: String!): User!
+    createVendor(name: String!, type: String!, address: String): Vendor!
+    login(email: String!, password: String!): LoginResponse!
+    createWorkerInvoice(wpid: String!, wage: Int!, date: String, halfDay: Boolean, note: String): WorkerInvoice!
   }
 
   type Vendor {
@@ -79,7 +80,7 @@ export const typeDefs = gql`
     users: [User]!
     vendors: [Vendor!]!
     providers: [WorkersAndProviders]!
-    workerInvoice: [WokerInvoice]!
+    workerInvoice: [WorkerInvoice]!
     vendorInvoice: [VendorInvoice]!
   }
 `;
