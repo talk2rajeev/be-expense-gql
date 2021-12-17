@@ -2,8 +2,13 @@ import React from 'react';
 import {Calendar,Select, Radio, Col, Row, Typography } from 'antd'
 import 'antd/dist/antd.min.css';
 
-
-export default function EventCalendar() {
+const months = ['jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+/*
+tickedDates : [
+    {date: string, halfDay: boolean}
+]
+*/
+export default function EventCalendar({tickedDates}) {
     function onPanelChange(value, mode) {
         console.log(value, mode);
     }
@@ -16,15 +21,24 @@ export default function EventCalendar() {
         const date = dateOb.toDate().getDate();
         const month = dateOb.toDate().getMonth();
         const year = dateOb.toDate().getFullYear();
-        const todayDate = new Date();
-        // console.log(date, month, todayDate)
-        if (date === todayDate.getDate() && month === todayDate.getMonth() && year === todayDate.getFullYear()) {
-            return <div>&#x2611;</div>
-        } 
-        return <div className="present-tick-mark">
-            {date % 3 === 0 ? <span className="fullday">&#10003;</span> : <span className="halfday">&#10003;</span>}
-        </div>
+
+        const dateStr = `${date} ${months[month]} ${year}`;
+
+        const dateIdx = tickedDates.findIndex(d => d.date === dateStr);
+        if (dateIdx > -1) {
+            if(!tickedDates[dateIdx].halfDay) {
+                return <div className="present-tick-mark">
+                    <span className="fullday">&#10003;</span>
+                </div>
+            } else {
+                return <div className="present-tick-mark">
+                    <span className="halfday">&#10003;</span>
+                </div>
+            }
+        }
+        return <div></div>
     }
+    console.log(tickedDates)
 
     return (
         <div>

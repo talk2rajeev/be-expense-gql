@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Providers = ({data, error, loading}) => {
+const Providers = ({data, error, loading, addWorkerInvoice}) => {
     
     if(loading) {
         return <h3>Lodaing Providers...</h3>
@@ -19,7 +19,7 @@ const Providers = ({data, error, loading}) => {
                 </div>
             </div>
             {
-                data.providers.filter(p=>p.type !== 'vendor').map((provider)=><ProviderItem provider={provider}/>)
+                data.providers.filter(p=>p.type !== 'vendor').map((provider)=><ProviderItem provider={provider} addWorkerInvoice={addWorkerInvoice}/>)
             }
         </div>
     )
@@ -28,8 +28,8 @@ const Providers = ({data, error, loading}) => {
 // export default React.memo(Providers)
 export default Providers;
 
-const ProviderItem = ({provider}) => <div style={{display: 'grid', gridTemplateColumns: '150px auto', gap: 10}}>
-    <div>{provider.name}</div>
+const ProviderItem = ({provider, addWorkerInvoice}) => <div style={{display: 'grid', gridTemplateColumns: '150px auto', gap: 10}}>
+    <div onClick={()=>addWorkerInvoice(provider.id)}>{provider.name}</div>
     <ProviderWageAggregation workerInvoice={provider.workerInvoice} />
 </div>
 
