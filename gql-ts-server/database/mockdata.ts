@@ -73,12 +73,15 @@ export const fetchProviderWorkers = (): Promise<Array<WorkersAndProvidersInterfa
 }
 
 export const workerInvoice = [
-  { id: 'w1', wpid: '2', date: '05 Dec 2021', wage: 300, halfDay: true, note: 'painting work'},
-  { id: 'w2', wpid: '3', date: '06 Dec 2021', wage: 300 },
-  { id: 'w3', wpid: '3', date: '07 Dec 2021', wage: 300 },
+  { id: 'w1', wpid: '2', date: '5 Dec 2021', wage: 300, halfDay: true, note: 'painting work'},
+  { id: 'w1.1', wpid: '2', date: '6 Dec 2021', wage: 300, halfDay: true, note: 'painting work'},
+  { id: 'w2', wpid: '3', date: '6 Dec 2021', wage: 300 },
+  { id: 'w3', wpid: '3', date: '7 Dec 2021', wage: 300 },
   { id: 'w4', wpid: '3', date: '12 Dec 2021', wage: 400, note: 'extra work'},
-  { id: 'w5', wpid: '2', date: '07 Dec 2021', wage: 350, note: 'painting work'},
-  { id: 'w6', wpid: '4', date: '08 Dec 2021', wage: 350, note: 'extra work'}
+  { id: 'w3', wpid: '3', date: '8 Dec 2021', wage: 300, halfDay: true, },
+  { id: 'w5', wpid: '2', date: '7 Dec 2021', wage: 350, note: 'painting work'},
+  { id: 'w5.1', wpid: '2', date: '8 Dec 2021', wage: 300, halfDay: true, note: 'painting work'},
+  { id: 'w6', wpid: '4', date: '8 Dec 2021', wage: 350, note: 'extra work'}
 ]
 export const fetchWorkerInvoice = (): Promise<Array<WorkerInvoiceInterface>> => {
   return new Promise((resolve, reject) => {
