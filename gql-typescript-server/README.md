@@ -1,5 +1,8 @@
 ## Add typescript
 
+This is older version of the app. `gql-ts-server` is the new server
+
+
 add typescipt
 `yarn add -D typescript ts-node @types/node`
 
