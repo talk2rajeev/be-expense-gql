@@ -8,3 +8,5 @@ It's graphql typescript based backed application with react + typescript  based 
 `npm install`
 
 ## how to work
+`cd gql-backend`
+npm start
