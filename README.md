@@ -9,6 +9,10 @@ It's graphql typescript based backed application with react + typescript  based 
 
 ## how to work
 #### backend 
-`cd gql-backend` and `npm start`
+`cd gql-backend` 
+and 
+`npm start`
+
+
 #### Front-end
 `cd react-fe` and `npm start`
