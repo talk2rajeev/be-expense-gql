@@ -1,6 +1,6 @@
 # be-expense-gql
 
-It's graphql typescript based backed application with react + typescript  based front end applicaion. It implements JWT token based authentication.
+It's Graphql Typescript based backed application and React + Typescript  based front end applicaion. It implements JWT token based authentication.
 `gql-ts-server` directory contains graphql server code with authentication implemented. `gql`
 `gql-backend` is mock server to serve dummy data for development.
 
